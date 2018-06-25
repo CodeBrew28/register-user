@@ -12,12 +12,12 @@ module.exports = register = async (req, res) => {
         try {
             await player.save()
         } catch (error) {
-            send(res, 400, "Couldn't add the new user");
+            send(res, 400, "Could not add the new user");
         }
         const data = { message: 'Welcome ' + body.email };
         send(res, 200, data);
     }
-    const data = { message: 'Email not provided' };
+    const data = { message: 'Email was not provided' };
     send(res, 400, data);
     
 }
