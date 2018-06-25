@@ -9,15 +9,15 @@ module.exports = register = async (req, res) => {
     const body = await json(req)
     if (body.email) {
         const player = new Player({email: body.email });  
-        try {
+        try {s
             await player.save()
         } catch (error) {
-            send(res, 400, "Could not add the new user");
+            send(res, 400, "There is an existing account already");
         }
         const data = { message: 'Welcome ' + body.email };
         send(res, 200, data);
     }
-    const data = { message: 'Email was not provided' };
+    const data = { message: 'Please provide an email' };
     send(res, 400, data);
     
 }
